@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <!-- favicon stuff -->
+    <!-- <link rel="icon" 
+	type="image/png" 
+	href="brewImages/favicon32x.png"> -->
+</head>
+<!-- NAVBAR
+	================================================== -->
+
+<body ng-app="volzBrewApp" ng-controller="volzBrewController">
+    <div class="navbar-wrapper">
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Bob Ross JS</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#home">Home</a></li>
+                            <li><a href="#episodes">Episodes</a></li>
+                            <li><a href="#about">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <canvas id="canvas" width="500" height="500">
+        This text is displayed if your browser does not support HTML5 Canvas.
+    </canvas>
+    <!-- <div class="ng-view"></div> -->
+    <div class="container episodes">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>A WALK IN THE WOODS</h2>
+                <p>S01E01</p>
+                <p><a class="btn btn-default" href="#S01E01" onclick="findEpisode('S01E01');" role="button">Paint</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <h2>MT. MCKINLEY</h2>
+                <p>S01E02</p>
+                <p><a class="btn btn-default" href="#S01E02" onclick="findEpisode('S01E02');" role="button">Coming Soon</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
+
+            <div class="col-lg-4">
+                <h2>Eraser</h2>
+                <p>...</p>
+                <p><a class="btn btn-default" href="#S01E03" onclick="cleanBoard();" role="button">Coming Soon</a></p>
+            </div>
+
+            <!-- normal 3rd -->
+            <!--   <div class="col-lg-4">
+                <h2>EBONY SUNSET</h2>
+                <p>S01E03</p>
+                <p><a class="btn btn-default" href="#S01E03" onclick="findEpisode('S01E03');" role="button">Coming Soon</a></p>
+            </div> -->
+
+            <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+       
+        <!-- FOOTER -->
+        <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <!-- <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
+        </footer>
+        <!-- FOOTER -->
+    </div>
+    <!-- /.container -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script> -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script> -->
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js"></script>
+    <!-- <script src="styleJS.js"></script> -->
+</body>
+
+</html>
