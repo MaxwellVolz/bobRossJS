@@ -32,8 +32,12 @@ $(function() {
         if (hash != "" && hash != null) {
             findEpisode(hash.slice(1));
         }
+
+        addEpisodeButtons();
     });
 
+
+    
 
     // console.log("hash: " + hash);
 
@@ -56,8 +60,25 @@ function drawScene() {
     }
 
 
+
+
     // draw basic layout of scene
 
+}
+function addEpisodeButtons(){
+
+    console.log("hey");
+
+    $.each(episodesJSON,function(index,v){
+
+        // console.log("v");
+        // console.log(v);
+        var newDom = "<div class='col-lg-2'><h2>"+ v.TITLE + "</h2><p>" + v.EPISODE + "</p><p><a class='btn btn-default' href='" + "#" + v.EPISODE + "' onclick='findEpisode(\""+  v.EPISODE + "\");' role='button'>" + v.TITLE + "</a></p></div>";
+        console.log(newDom);
+        $("div.episodes > div.row").append(newDom);
+    });
+
+    
 }
 
 
@@ -124,6 +145,8 @@ function drawEmptyCanvas() {
 function findEpisode(episode) {
 
     console.log("Paint: " + episode);
+
+    drawEmptyCanvas();
 
     $.each(episodesJSON, function(i, v) {
 
@@ -460,6 +483,75 @@ function paint(x) {
         break;
         case 'BARN':
 
+        // draw silo
+
+        var randomX = Math.floor((Math.random() * 80) + 1);
+        var randomY = Math.floor((Math.random() * 60) + 1);
+
+        context.globalAlpha = 1;
+        
+        // barn back
+        context.fillStyle = 'gray';
+
+        context.beginPath();
+
+        context.moveTo(160+randomX, 150+randomY);
+
+        context.quadraticCurveTo(215+randomX,115+randomY,215+randomX,115+randomY);
+        // context.quadraticCurveTo(250+randomX,130+randomY,250+randomX,130+randomY);
+        // context.quadraticCurveTo(280+randomX,130+randomY,280+randomX,130+randomY);
+
+        context.quadraticCurveTo(260+randomX,140+randomY,260+randomX,140+randomY);
+        context.quadraticCurveTo(290+randomX,140+randomY,290+randomX,140+randomY);
+        context.quadraticCurveTo(280+randomX,153+randomY,280+randomX,153+randomY);
+
+
+        // last
+        context.quadraticCurveTo(160+randomX,150+randomY,160+randomX,150+randomY);
+
+        context.fill();
+
+        context.closePath();
+
+
+        //barn
+        context.fillStyle = 'red';
+
+        context.beginPath();
+
+        context.moveTo(160+randomX, 150+randomY);
+
+        context.quadraticCurveTo(205+randomX,135+randomY,205+randomX,135+randomY);
+        context.quadraticCurveTo(250+randomX,150+randomY,250+randomX,150+randomY);
+        //barn extension
+        context.quadraticCurveTo(280+randomX,150+randomY,280+randomX,150+randomY);
+        context.quadraticCurveTo(290+randomX,140+randomY,290+randomX,140+randomY);
+        context.quadraticCurveTo(290+randomX,190+randomY,290+randomX,190+randomY);
+
+        // ground
+        context.quadraticCurveTo(280+randomX,200+randomY,280+randomX,205+randomY);
+        context.quadraticCurveTo(160+randomX,205+randomY,160+randomX,205+randomY);
+
+        // last
+        context.quadraticCurveTo(160+randomX,150+randomY,160+randomX,150+randomY);
+
+        context.fill();
+
+        context.closePath();
+
+
+
+
+
+
+
+        // draw base
+
+        // draw roof
+
+        // draw door
+
+
         break;
         case 'BEACH':
 
@@ -776,6 +868,61 @@ function paint(x) {
 
             break;
             case 'LAKE':
+            var amt = Math.floor((Math.random() * 10) + 5);
+
+            var riverX = Math.floor((Math.random() * 240) + 1);
+            var riverY = Math.floor((Math.random() * 50) + 250);
+
+            var riverSize = Math.floor((Math.random() * 20) + 200);
+
+            var medRand = Math.floor((Math.random() * 100) - 50);
+
+            var lgRand = Math.floor((Math.random() * 200) - 100);
+            var lgRand2 = Math.floor((Math.random() * 200) - 100);
+
+            while (amt > 0) {
+
+                context.globalAlpha = .1;
+
+                var smallRand = Math.floor((Math.random() * 40) - 20);
+                var smallRand2 = Math.floor((Math.random() * 80) - 40);
+
+                
+
+                context.fillStyle = 'lightblue';
+
+                context.beginPath();
+
+                context.moveTo(258+lgRand+smallRand,200+medRand);
+
+
+                context.quadraticCurveTo(269+lgRand+smallRand,138+medRand+smallRand,298+lgRand,200+medRand+smallRand2);
+
+
+                context.quadraticCurveTo(359+lgRand2+smallRand2,265+medRand,288+lgRand2,270+medRand);
+
+                context.quadraticCurveTo(269+lgRand2,272+medRand,268+lgRand2,270+medRand);
+
+                context.quadraticCurveTo(259+lgRand2+smallRand2,225+medRand,228+smallRand,200+medRand);
+
+                // context.quadraticCurveTo(249+lgRand2,270+medRand,248+lgRand2,270+medRand);
+
+                //context.quadraticCurveTo(420+medRand,330+smallRand,260+medRand,270+medRand);
+
+                //context.quadraticCurveTo(160+medRand,330+smallRand,130+medRand,270+medRand);
+
+
+                context.fill();
+
+                context.closePath();
+
+
+                --amt;
+            }
+
+            context.globalAlpha = 1;
+            context.closePath();
+
 
             break;
             case 'LAKES':
@@ -812,6 +959,8 @@ function paint(x) {
 
             break;
             case 'PERSON':
+
+
 
             break;
             case 'PORTRAIT':

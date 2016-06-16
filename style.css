@@ -1,3 +1,14 @@
 .episodes{
 	text-align:center;
 }
+
+.row > div > h2{
+	font-size:1em;
+}
+.row > div > p, .row > div > p > a{
+	font-size:.9em;
+}
+
+div.col-lg-2{
+	height:140px;
+}
